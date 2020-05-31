@@ -69,8 +69,8 @@ usb_master u_usb_master(
 );
 
 initial begin
-  clk = 0;
-  resetn = 0;
+  clk = 0; resetn = 0; mode = 3'd0;
+	fx3_flaga = 0; fx3_flagb = 0; fx3_flagc = 0; fx3_flagd = 0;
   #20 resetn = 1;
   #500;
   @(posedge fx3_pclk);

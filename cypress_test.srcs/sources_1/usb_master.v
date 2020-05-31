@@ -2,7 +2,7 @@ module usb_master(
   input wire        usbclk, // max 100MHz
   input wire        resetn,
   input wire  [2:0] test_mode_p,
- output wire        pmod,
+ output wire  [1:0] pmod,
  output wire        pclk,
   inout wire [31:0] fdata,
  output reg   [1:0] faddr,
@@ -16,7 +16,7 @@ module usb_master(
   input wire        flagd,
  output reg         pktend
 );
-
+assign pmod = 2'b11;
 assign pclk = usbclk;
 
 localparam mode_miso = 4, mode_mosi = 3;
@@ -114,6 +114,7 @@ always @(posedge usbclk or negedge resetn) begin
     slwr <= 1;
     rd_cnt <= 0;
     dly_cnt <= 0;
+    pktend <= 0;
   end else begin
     case(next_state)
       IDLE: begin
@@ -124,6 +125,7 @@ always @(posedge usbclk or negedge resetn) begin
         slwr <= 1;
         rd_cnt <= 0;
         dly_cnt <= 0;
+        pktend <= 0;
       end
       MISO_PENDING_FLAG: begin
         faddr <= 2'b11;
