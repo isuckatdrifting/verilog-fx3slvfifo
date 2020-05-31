@@ -1,0 +1,10 @@
+**/.Xil
+**/config_settings
+**/*.cache
+**/*.hw
+**/*.ip_user_files
+**/*.ipdefs
+**/*.runs
+**/*.sim
+**/vivado*
+**/*.wdb
