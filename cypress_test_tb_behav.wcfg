@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="cypress_test_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="cypress_test_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="452270000fs"></ZoomStartTime>
+      <ZoomEndTime time="873570800fs"></ZoomEndTime>
+      <Cursor1Time time="565000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="217"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="50" />
+   <wvobject fp_name="divider50" type="divider">
+      <obj_property name="label">TB TOP</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/resetn">
+      <obj_property name="ElementShortName">resetn</obj_property>
+      <obj_property name="ObjectShortName">resetn</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/fx3_flaga">
+      <obj_property name="ElementShortName">fx3_flaga</obj_property>
+      <obj_property name="ObjectShortName">fx3_flaga</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/fx3_flagb">
+      <obj_property name="ElementShortName">fx3_flagb</obj_property>
+      <obj_property name="ObjectShortName">fx3_flagb</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/fx3_flagc">
+      <obj_property name="ElementShortName">fx3_flagc</obj_property>
+      <obj_property name="ObjectShortName">fx3_flagc</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/fx3_flagd">
+      <obj_property name="ElementShortName">fx3_flagd</obj_property>
+      <obj_property name="ObjectShortName">fx3_flagd</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/cypress_test_tb/mode">
+      <obj_property name="ElementShortName">mode[2:0]</obj_property>
+      <obj_property name="ObjectShortName">mode[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/cypress_test_tb/cfg_counter">
+      <obj_property name="ElementShortName">cfg_counter[7:0]</obj_property>
+      <obj_property name="ObjectShortName">cfg_counter[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/cypress_test_tb/cfg">
+      <obj_property name="ElementShortName">cfg[0:9][31:0]</obj_property>
+      <obj_property name="ObjectShortName">cfg[0:9][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/cypress_test_tb/fdata_out">
+      <obj_property name="ElementShortName">fdata_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fdata_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/cypress_test_tb/fx3_fdata">
+      <obj_property name="ElementShortName">fx3_fdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fx3_fdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/cypress_test_tb/fx3_faddr">
+      <obj_property name="ElementShortName">fx3_faddr[1:0]</obj_property>
+      <obj_property name="ObjectShortName">fx3_faddr[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/cypress_test_tb/fx3_PMODE">
+      <obj_property name="ElementShortName">fx3_PMODE[1:0]</obj_property>
+      <obj_property name="ObjectShortName">fx3_PMODE[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/fx3_pclk">
+      <obj_property name="ElementShortName">fx3_pclk</obj_property>
+      <obj_property name="ObjectShortName">fx3_pclk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/fx3_slrd">
+      <obj_property name="ElementShortName">fx3_slrd</obj_property>
+      <obj_property name="ObjectShortName">fx3_slrd</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/fx3_slwr">
+      <obj_property name="ElementShortName">fx3_slwr</obj_property>
+      <obj_property name="ObjectShortName">fx3_slwr</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/fx3_sloe">
+      <obj_property name="ElementShortName">fx3_sloe</obj_property>
+      <obj_property name="ObjectShortName">fx3_sloe</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/fx3_slcs">
+      <obj_property name="ElementShortName">fx3_slcs</obj_property>
+      <obj_property name="ObjectShortName">fx3_slcs</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/fx3_pktend">
+      <obj_property name="ElementShortName">fx3_pktend</obj_property>
+      <obj_property name="ObjectShortName">fx3_pktend</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/slrd_dly1">
+      <obj_property name="ElementShortName">slrd_dly1</obj_property>
+      <obj_property name="ObjectShortName">slrd_dly1</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/slrd_dly2">
+      <obj_property name="ElementShortName">slrd_dly2</obj_property>
+      <obj_property name="ObjectShortName">slrd_dly2</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider49" type="divider">
+      <obj_property name="label">USB Master</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/u_usb_master/usbclk">
+      <obj_property name="ElementShortName">usbclk</obj_property>
+      <obj_property name="ObjectShortName">usbclk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/u_usb_master/resetn">
+      <obj_property name="ElementShortName">resetn</obj_property>
+      <obj_property name="ObjectShortName">resetn</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/cypress_test_tb/u_usb_master/test_mode_p">
+      <obj_property name="ElementShortName">test_mode_p[2:0]</obj_property>
+      <obj_property name="ObjectShortName">test_mode_p[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/cypress_test_tb/u_usb_master/pmod">
+      <obj_property name="ElementShortName">pmod[1:0]</obj_property>
+      <obj_property name="ObjectShortName">pmod[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/u_usb_master/pclk">
+      <obj_property name="ElementShortName">pclk</obj_property>
+      <obj_property name="ObjectShortName">pclk</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/cypress_test_tb/u_usb_master/fdata">
+      <obj_property name="ElementShortName">fdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/cypress_test_tb/u_usb_master/faddr">
+      <obj_property name="ElementShortName">faddr[1:0]</obj_property>
+      <obj_property name="ObjectShortName">faddr[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/u_usb_master/slrd">
+      <obj_property name="ElementShortName">slrd</obj_property>
+      <obj_property name="ObjectShortName">slrd</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/u_usb_master/slwr">
+      <obj_property name="ElementShortName">slwr</obj_property>
+      <obj_property name="ObjectShortName">slwr</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/u_usb_master/sloe">
+      <obj_property name="ElementShortName">sloe</obj_property>
+      <obj_property name="ObjectShortName">sloe</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/u_usb_master/slcs">
+      <obj_property name="ElementShortName">slcs</obj_property>
+      <obj_property name="ObjectShortName">slcs</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/u_usb_master/flaga">
+      <obj_property name="ElementShortName">flaga</obj_property>
+      <obj_property name="ObjectShortName">flaga</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/u_usb_master/flagb">
+      <obj_property name="ElementShortName">flagb</obj_property>
+      <obj_property name="ObjectShortName">flagb</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/u_usb_master/flagc">
+      <obj_property name="ElementShortName">flagc</obj_property>
+      <obj_property name="ObjectShortName">flagc</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/u_usb_master/flagd">
+      <obj_property name="ElementShortName">flagd</obj_property>
+      <obj_property name="ObjectShortName">flagd</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/u_usb_master/pktend">
+      <obj_property name="ElementShortName">pktend</obj_property>
+      <obj_property name="ObjectShortName">pktend</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/cypress_test_tb/u_usb_master/fdata_d">
+      <obj_property name="ElementShortName">fdata_d[31:0]</obj_property>
+      <obj_property name="ObjectShortName">fdata_d[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/u_usb_master/flaga_d">
+      <obj_property name="ElementShortName">flaga_d</obj_property>
+      <obj_property name="ObjectShortName">flaga_d</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/u_usb_master/flagb_d">
+      <obj_property name="ElementShortName">flagb_d</obj_property>
+      <obj_property name="ObjectShortName">flagb_d</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/u_usb_master/flagc_d">
+      <obj_property name="ElementShortName">flagc_d</obj_property>
+      <obj_property name="ObjectShortName">flagc_d</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/u_usb_master/flagd_d">
+      <obj_property name="ElementShortName">flagd_d</obj_property>
+      <obj_property name="ObjectShortName">flagd_d</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/cypress_test_tb/u_usb_master/mode">
+      <obj_property name="ElementShortName">mode[2:0]</obj_property>
+      <obj_property name="ObjectShortName">mode[2:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/cypress_test_tb/u_usb_master/state">
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/cypress_test_tb/u_usb_master/next_state">
+      <obj_property name="ElementShortName">next_state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">next_state[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/cypress_test_tb/u_usb_master/rd_cnt">
+      <obj_property name="ElementShortName">rd_cnt[3:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_cnt[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/cypress_test_tb/u_usb_master/wr_cnt">
+      <obj_property name="ElementShortName">wr_cnt[3:0]</obj_property>
+      <obj_property name="ObjectShortName">wr_cnt[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/cypress_test_tb/u_usb_master/dly_cnt">
+      <obj_property name="ElementShortName">dly_cnt[3:0]</obj_property>
+      <obj_property name="ObjectShortName">dly_cnt[3:0]</obj_property>
+   </wvobject>
+</wave_config>

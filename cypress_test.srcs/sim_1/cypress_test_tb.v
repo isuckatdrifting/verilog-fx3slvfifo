@@ -22,25 +22,25 @@ task cypress_stream;
 begin
   mode = stream_mode;
   if(stream_mode == `WRITE_TO_CYPRESS) begin
-    fx3_flaga = 1; fx3_flagb = 1;
+    fx3_flaga = 1; //fx3_flagb = 1;
     #(10*(`CFG_PLENGTH+2))
-    fx3_flagb = 0;
+    // fx3_flagb = 0;
     #40
     fx3_flaga = 0;
     #90
     mode  = 3'd0;
   end else if(stream_mode == `READ_FROM_CYPRESS) begin
-    fx3_flagc = 1; fx3_flagd = 1;
+    fx3_flagc = 1; //fx3_flagd = 1;
     #(10*(`CFG_PLENGTH+2))
-    fx3_flagd = 0;
+    // fx3_flagd = 0;
     #40
     fx3_flagc = 0;
     #90
     mode  = 3'd0;
   end else if(stream_mode == `PARTIAL_TO_CYPRESS) begin
-    fx3_flaga = 1; fx3_flagb = 1;
+    fx3_flaga = 1; //fx3_flagb = 1;
     #(10*(30+2))
-    fx3_flagb = 0;
+    // fx3_flagb = 0;
     #60
     fx3_flaga = 0;
     #90
