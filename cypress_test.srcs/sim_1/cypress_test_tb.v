@@ -3,6 +3,7 @@
 `define WRITE_TO_CYPRESS 3'd3
 `define READ_FROM_CYPRESS 3'd4
 `define CFG_PLENGTH 10
+`define DFF 1
 
 module cypress_test_tb;
 
@@ -104,13 +105,13 @@ end
 
 always @(posedge fx3_pclk) begin
   // delay two cycles, then sendout data
-  slrd_dly1 <= fx3_slrd;
-  slrd_dly2 <= slrd_dly1;
+  slrd_dly1 <= #`DFF fx3_slrd;
+  slrd_dly2 <= #`DFF slrd_dly1;
   if(mode == `READ_FROM_CYPRESS && !slrd_dly2 && cfg_counter < `CFG_PLENGTH) begin
-    cfg_counter <= cfg_counter + 1;
-	  fdata_out <= cfg[cfg_counter];
+    cfg_counter <= #`DFF cfg_counter + 1;
+	  fdata_out <= #`DFF cfg[cfg_counter];
   end else begin
-    fdata_out <= 32'h0000_0000;
+    fdata_out <= #`DFF 32'h0000_0000;
   end 
 end
 assign fx3_fdata = (mode == `WRITE_TO_CYPRESS) ? 32'hz : fdata_out;

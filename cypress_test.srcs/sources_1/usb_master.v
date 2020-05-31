@@ -1,3 +1,5 @@
+`define DFF 1
+
 module usb_master(
   input wire        usbclk, // max 100MHz
   input wire        resetn,
@@ -32,21 +34,21 @@ reg [3:0] rd_cnt, wr_cnt, dly_cnt;
 // Sync inputs
 always @(posedge usbclk or negedge resetn) begin
   if(!resetn) begin
-    fdata_d <= 32'd0;
-    flaga_d <= 0; flagb_d <= 0; flagc_d <= 0; flagd_d <= 0; mode <= 3'b000;
+    fdata_d <= #`DFF 32'd0;
+    flaga_d <= #`DFF 0; flagb_d <= #`DFF 0; flagc_d <= #`DFF 0; flagd_d <= #`DFF 0; mode <= #`DFF 3'b000;
   end else begin
-    fdata_d <= fdata;
-    flaga_d <= flaga;
-		flagb_d <= flagb;
-		flagc_d <= flagc;
-		flagd_d <= flagd;
-    mode <= test_mode_p;
+    fdata_d <= #`DFF fdata;
+    flaga_d <= #`DFF flaga;
+		flagb_d <= #`DFF flagb;
+		flagc_d <= #`DFF flagc;
+		flagd_d <= #`DFF flagd;
+    mode <= #`DFF test_mode_p;
   end
 end
 
 always @(posedge usbclk or negedge resetn) begin
-  if(!resetn) state <= IDLE;
-  else state <= next_state;
+  if(!resetn) state <= #`DFF IDLE;
+  else state <= #`DFF next_state;
 end
 
 always @* begin
@@ -107,64 +109,64 @@ end
 
 always @(posedge usbclk or negedge resetn) begin
   if(!resetn) begin
-    faddr <= 2'b00;
-    slcs <= 1;
-    sloe <= 1;
-    slrd <= 1;
-    slwr <= 1;
-    rd_cnt <= 0;
-    dly_cnt <= 0;
-    pktend <= 0;
+    faddr <= #`DFF 2'b00;
+    slcs <= #`DFF 1;
+    sloe <= #`DFF 1;
+    slrd <= #`DFF 1;
+    slwr <= #`DFF 1;
+    rd_cnt <= #`DFF 0;
+    dly_cnt <= #`DFF 0;
+    pktend <= #`DFF 0;
   end else begin
     case(next_state)
       IDLE: begin
-        faddr <= 2'b00;
-        slcs <= 1;
-        sloe <= 1;
-        slrd <= 1;
-        slwr <= 1;
-        rd_cnt <= 0;
-        dly_cnt <= 0;
-        pktend <= 0;
+        faddr <= #`DFF 2'b00;
+        slcs <= #`DFF 1;
+        sloe <= #`DFF 1;
+        slrd <= #`DFF 1;
+        slwr <= #`DFF 1;
+        rd_cnt <= #`DFF 0;
+        dly_cnt <= #`DFF 0;
+        pktend <= #`DFF 0;
       end
       MISO_PENDING_FLAG: begin
-        faddr <= 2'b11;
-        slcs <= 0;
+        faddr <= #`DFF 2'b11;
+        slcs <= #`DFF 0;
       end
       MISO_FLAG_RCVD: begin
-        sloe <= 0;
-        slrd <= 0;
+        sloe <= #`DFF 0;
+        slrd <= #`DFF 0;
       end
       MISO_READING: begin
         if(rd_cnt < 6) begin
-          rd_cnt <= rd_cnt + 1;
+          rd_cnt <= #`DFF rd_cnt + 1;
           if(rd_cnt == 5) begin
-            slrd <= 1;
+            slrd <= #`DFF 1;
           end
         end
       end
       MISO_READING_DELAY: begin
         if(dly_cnt < 2) begin
-          dly_cnt <= dly_cnt + 1;
+          dly_cnt <= #`DFF dly_cnt + 1;
           if(dly_cnt == 1) begin
-            sloe <= 1;
+            sloe <= #`DFF 1;
           end
         end
       end
       MOSI_PENDING_FLAG: begin
-        faddr <= 2'b00;
-        slcs <= 0;
+        faddr <= #`DFF 2'b00;
+        slcs <= #`DFF 0;
       end
       MOSI_FLAG_RCVD: begin
-        slwr <= 0;
+        slwr <= #`DFF 0;
       end
       MOSI_WRITING: begin
       end
       MOSI_WRITING_DELAY: begin
-        if(dly_cnt < 3) dly_cnt <= dly_cnt + 1;
+        if(dly_cnt < 3) dly_cnt <= #`DFF dly_cnt + 1;
         else begin
-          dly_cnt <= dly_cnt;
-          slwr <= 1;
+          dly_cnt <= #`DFF dly_cnt;
+          slwr <= #`DFF 1;
         end
       end
       default:;
