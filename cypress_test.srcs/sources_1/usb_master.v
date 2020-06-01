@@ -16,7 +16,8 @@ module usb_master(
   input wire        flagb,
   input wire        flagc,
   input wire        flagd,
- output reg         pktend
+ output reg         pktend,
+ output wire  [7:0] led
 );
 assign pmod = 2'b11;
 assign pclk = usbclk;
