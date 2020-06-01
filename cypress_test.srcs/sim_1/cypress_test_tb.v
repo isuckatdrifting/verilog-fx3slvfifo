@@ -51,7 +51,7 @@ end
 endtask
 
 usb_master u_usb_master(
-  .usbclk (clk),
+  .clk (clk),
   .resetn (resetn),
   .test_mode_p  (mode),
   .pmod   (fx3_PMODE),

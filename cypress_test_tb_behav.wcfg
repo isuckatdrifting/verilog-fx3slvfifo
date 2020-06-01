@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="452270000fs"></ZoomStartTime>
-      <ZoomEndTime time="873570800fs"></ZoomEndTime>
-      <Cursor1Time time="565000000fs"></Cursor1Time>
+      <ZoomStartTime time="508600000fs"></ZoomStartTime>
+      <ZoomEndTime time="695000001fs"></ZoomEndTime>
+      <Cursor1Time time="635000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="217"></NameColumnWidth>
       <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="50" />
+   <WVObjectSize size="54" />
    <wvobject fp_name="divider50" type="divider">
       <obj_property name="label">TB TOP</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -144,6 +144,18 @@
       <obj_property name="ElementShortName">slrd</obj_property>
       <obj_property name="ObjectShortName">slrd</obj_property>
    </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/u_usb_master/slrd_dly1">
+      <obj_property name="ElementShortName">slrd_dly1</obj_property>
+      <obj_property name="ObjectShortName">slrd_dly1</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/u_usb_master/slrd_dly2">
+      <obj_property name="ElementShortName">slrd_dly2</obj_property>
+      <obj_property name="ObjectShortName">slrd_dly2</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/cypress_test_tb/u_usb_master/slrd_dly3">
+      <obj_property name="ElementShortName">slrd_dly3</obj_property>
+      <obj_property name="ObjectShortName">slrd_dly3</obj_property>
+   </wvobject>
    <wvobject type="logic" fp_name="/cypress_test_tb/u_usb_master/slwr">
       <obj_property name="ElementShortName">slwr</obj_property>
       <obj_property name="ObjectShortName">slwr</obj_property>
@@ -219,5 +231,9 @@
    <wvobject type="array" fp_name="/cypress_test_tb/u_usb_master/dly_cnt">
       <obj_property name="ElementShortName">dly_cnt[3:0]</obj_property>
       <obj_property name="ObjectShortName">dly_cnt[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/cypress_test_tb/u_usb_master/led">
+      <obj_property name="ElementShortName">led[7:0]</obj_property>
+      <obj_property name="ObjectShortName">led[7:0]</obj_property>
    </wvobject>
 </wave_config>

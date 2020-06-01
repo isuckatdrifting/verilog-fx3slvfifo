@@ -1,7 +1,7 @@
 `define DFF 1
 
 module usb_master(
-  input wire        usbclk, // max 100MHz
+  input wire        clk, // max 100MHz
   input wire        resetn,
   input wire  [2:0] test_mode_p,
  output wire  [1:0] pmod,
@@ -17,9 +17,58 @@ module usb_master(
   input wire        flagc,
   input wire        flagd,
  output reg         pktend,
- output wire  [7:0] led
+ output reg   [7:0] led
 );
 assign pmod = 2'b11;
+
+wire usbclk, CLKFB_int, CLKOUT5;
+
+MMCME2_ADV #(
+    .BANDWIDTH("HIGH"),        // Jitter programming
+    .CLKFBOUT_MULT_F(8.000),          // Multiply value for all CLKOUT
+    .CLKFBOUT_PHASE(0.0),           // Phase offset in degrees of CLKFB
+    .CLKFBOUT_USE_FINE_PS("FALSE"), // Fine phase shift enable (TRUE/FALSE)
+    .CLKIN1_PERIOD(10),            // Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
+    .CLKOUT5_DIVIDE(8),         // Divide amount for CLKOUT5
+    .CLKOUT5_DUTY_CYCLE(0.5),       // Duty cycle for CLKOUT5
+    .CLKOUT5_PHASE(0.0),            // Phase offset for CLKOUT5
+    .CLKOUT5_USE_FINE_PS("FALSE"),  // Fine phase shift enable (TRUE/FALSE)
+    .COMPENSATION("ZHOLD"),          // Clock input compensation
+    .DIVCLK_DIVIDE(1),              // Master division value
+    .STARTUP_WAIT("FALSE")          // Delays DONE until MMCM is locked
+    )
+  MMCME2_ADV_inst (
+    .CLKFBOUT     (CLKFB_int),         // 1-bit output: Feedback clock
+    .CLKFBOUTB    (),       // 1-bit output: Inverted CLKFBOUT
+    .CLKFBSTOPPED (), // 1-bit output: Feedback clock stopped
+    .CLKINSTOPPED (), // 1-bit output: Input clock stopped
+    .CLKOUT5      (CLKOUT5),           // 1-bit output: CLKOUT4
+    .DO           (),                     // 16-bit output: DRP data output
+    .DRDY         (),                 // 1-bit output: DRP ready
+    .LOCKED       (),             // 1-bit output: LOCK
+    .PSDONE       (),             // 1-bit output: Phase shift done
+    .CLKFBIN      (CLKFB_int),           // 1-bit input: Feedback clock
+    .CLKIN1       (clk),             // 1-bit input: Primary clock
+    .CLKIN2       (1'b0),             // 1-bit input: Secondary clock
+    .CLKINSEL     (1'b1),         // 1-bit input: Clock select, High=CLKIN1 Low=CLKIN2
+    .DADDR        (7'h0),               // 7-bit input: DRP address
+    .DCLK         (1'b0),                 // 1-bit input: DRP clock
+    .DEN          (1'b0),                   // 1-bit input: DRP enable
+    .DI           (16'h0),                     // 16-bit input: DRP data input
+    .DWE          (1'b0),                   // 1-bit input: DRP write enable
+    .PSCLK        (1'b0),               // 1-bit input: Phase shift clock
+    .PSEN         (1'b0),                 // 1-bit input: Phase shift enable
+    .PSINCDEC     (1'b0),         // 1-bit input: Phase shift increment/decrement
+    .PWRDWN       (1'b0),             // 1-bit input: Power-down
+    .RST          (1'b0)                    // 1-bit input: Reset
+  );
+
+  // Output buffering
+  BUFG u_clkout_buf (
+    .O(usbclk),
+    .I(CLKOUT5)
+  );
+
 assign pclk = usbclk;
 
 localparam mode_miso = 4, mode_mosi = 3;
@@ -32,6 +81,7 @@ reg flaga_d, flagb_d, flagc_d, flagd_d;
 reg [2:0] mode;
 reg [3:0] state, next_state;
 reg [3:0] rd_cnt, wr_cnt, dly_cnt;
+reg slrd_dly1, slrd_dly2, slrd_dly3;
 // Sync inputs
 always @(posedge usbclk or negedge resetn) begin
   if(!resetn) begin
@@ -172,6 +222,23 @@ always @(posedge usbclk or negedge resetn) begin
       end
       default:;
     endcase
+  end
+end
+
+// simple regmap
+always @(posedge usbclk or negedge resetn) begin
+  if(!resetn) begin
+    led <= #`DFF 8'b01010101;
+    slrd_dly1 <= #`DFF 1;
+    slrd_dly2 <= #`DFF 1;
+    slrd_dly3 <= #`DFF 1;
+  end else begin
+    slrd_dly1 <= #`DFF slrd;
+    slrd_dly2 <= #`DFF slrd_dly1;
+    slrd_dly3 <= #`DFF slrd_dly2;
+    if(!slrd_dly3 && !slcs && fdata[31]) begin
+      led <= #`DFF fdata[7:0];
+    end
   end
 end
 endmodule
